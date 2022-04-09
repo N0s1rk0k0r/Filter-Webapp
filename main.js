@@ -1,9 +1,12 @@
+option = "empty";
 noseX=0;
 noseY=0;
 
 function preload() { 
-    mustache = loadImage('https://i.postimg.cc/8cXTKDCy/download-removebg-preview-1.png');
-}
+    clown_nose = loadImage('https://i.postimg.cc/WphCgMvm/download-removebg-preview.png');
+    curly_black_mustache = loadImage('https://i.postimg.cc/8cXTKDCy/download-removebg-preview-1.png');
+    witch_nose = loadImage('https://i.postimg.cc/MTMy9ZtT/download-removebg-preview.png')
+    }
 
 function setup() {
     canvas = createCanvas(300, 300);
@@ -21,8 +24,17 @@ function modelLoaded() {
 }
 
 function draw(){
+    option = document.getElementById("filter-options").value;
     image(video, 0, 0, 300, 300);
-    image(mustache, noseX -25, noseY -10, 60, 50);
+    if (option == "cb-mustache") {
+    image(curly_black_mustache, noseX -25, noseY -10, 60, 50);
+    }
+    else if (option == "red-clown-nose") { 
+    image(clown_nose, noseX, noseY -10, 20, 20);
+    }
+    else { 
+        image(witch_nose, noseX-25, noseY-25, 50, 50);
+        }
 }
 
 function take_snapshot() {
